@@ -1,7 +1,6 @@
 package Pair;
 
 /**
- * Created by OGUNDE KEHINDE on 1/16/2016.
  * @author OGUNDE KEHINDE
  * This class is a generics class with two types
  * {@literal} <K> key of element
