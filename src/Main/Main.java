@@ -1,7 +1,13 @@
 package Main;
 
 /**
- * Created by OGUNDE KEHINDE on 1/15/2016.
+ * @author OGUNDE KEHINDE
+ * This class runs all application logic
  */
+
 public class Main {
+
+    public static void main(String[] args){
+        System.out.println("Main Application");
+    }
 }
