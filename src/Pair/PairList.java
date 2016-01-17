@@ -6,8 +6,8 @@ import java.util.Iterator;
 
 /**
  * This is a generics Pair List class, holds a list of pair of any type
- * @literal} <K> key of element
- * {@literal} <V> value of element
+ * @literal <K> key of element}
+ * {@literal <V> value of element}
  *
  * <p>This class is a member of the
  * <a href="{@docRoot}/../src/pair/pairlist/index.html">
@@ -102,7 +102,7 @@ public class PairList<K, V> implements Collection<Pair<K, V>> {
      * @param o pair object whose presence in the list to be tested.
      * @return <tt>true</tt> if this list contains the specified pair object.
      */
-    public boolean contains(Pair<K, V> o) {
+    public boolean containsPair(Pair<K, V> o) {
         for (Pair<K, V> t : pairs) {
             if (t.getKey().equals(o.getKey()))
                 return true;
@@ -166,7 +166,7 @@ public class PairList<K, V> implements Collection<Pair<K, V>> {
      */
     @Override
     public boolean add(Pair<K, V> kvPair) {
-        if (!this.contains(kvPair))
+        if (!this.containsPair(kvPair))
             return pairs.add(kvPair);
         else return false;
     }
@@ -192,7 +192,21 @@ public class PairList<K, V> implements Collection<Pair<K, V>> {
      */
     @Override
     public boolean containsAll(Collection<?> c) {
-        return containsAll(c);
+        return pairs.containsAll(c);
+    }
+
+    /**
+     * Returns <tt>true</tt> if this list contains the specified elements.
+     *
+     * @param c elements whose presence in the list to be tested.
+     * @return <tt>true</tt> if this list contains the specified elements.
+     */
+    public boolean containsAllPair(Collection<Pair<K, V>> c) {
+        boolean flag = false;
+        for (Pair<K, V> pair : c){
+            flag = this.containsPair(pair);
+        }
+        return flag;
     }
 
     /**
@@ -203,7 +217,7 @@ public class PairList<K, V> implements Collection<Pair<K, V>> {
      */
     @Override
     public boolean addAll(Collection<? extends Pair<K, V>> c) {
-        return addAll(c);
+        return pairs.addAll(c);
     }
 
     /**
@@ -216,7 +230,7 @@ public class PairList<K, V> implements Collection<Pair<K, V>> {
      */
     @Override
     public boolean removeAll(Collection<?> c) {
-        return removeAll(c);
+        return pairs.removeAll(c);
     }
 
     /**
