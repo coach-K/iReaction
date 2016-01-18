@@ -1,5 +1,7 @@
 package Pair;
 
+import java.util.ArrayList;
+
 /**
  * @author OGUNDE KEHINDE
  *         This class is a generics class with two types
@@ -9,7 +11,8 @@ package Pair;
  *         {@code} Pair<String, String> pair = new Pair<>("Hello", "World");
  */
 public class Pair<K, V> {
-    public static final String DEFAULT = "";
+    public static final String DEFAULT_KEY = "";
+    public static final ArrayList<String> DEFAULT_VALUE = new ArrayList<>();
 
     private K key;
     private V value;
