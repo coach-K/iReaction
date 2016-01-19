@@ -17,8 +17,8 @@ public class PairFileParserTest {
 
     @Before
     public void setUp() throws Exception {
-        String DESKTOP_PATH = System.getProperty("user.home");
-        String FILE_NAME = DESKTOP_PATH + "\\desktop\\pairparsertest.txt";
+        String DESKTOP_PATH = System.getProperty("user.dir");
+        String FILE_NAME = DESKTOP_PATH + "\\assets\\pairparsertest.txt";
 
         File file = new File(FILE_NAME);
         pairFileParser = new PairFileParser(file);
