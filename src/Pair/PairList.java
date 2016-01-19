@@ -6,19 +6,19 @@ import java.util.Iterator;
 
 /**
  * This is a generics Pair List class, holds a list of pair of any type
+ *
+ * @author OGUNDE KEHINDE
  * @literal <K> key of element}
  * {@literal <V> value of element}
- *
+ * <p/>
  * <p>This class is a member of the
  * <a href="{@docRoot}/../src/pair/pairlist/index.html">
  * Java Collections Framework</a>.
- *
- * @author OGUNDE KEHINDE
- * @see     Pair
- * @see     Collection
- * @see     java.util.List
- * @see     java.util.ArrayList
- * @since   7.1
+ * @see Pair
+ * @see Collection
+ * @see java.util.List
+ * @see java.util.ArrayList
+ * @since 7.1
  */
 public class PairList<K, V> implements Collection<Pair<K, V>> {
 
@@ -37,18 +37,18 @@ public class PairList<K, V> implements Collection<Pair<K, V>> {
     /**
      * Returns the <tt>pair object</tt> at the specified position in this list.
      *
-     * @param  index index of the <tt>pair object</tt> to return
+     * @param index index of the <tt>pair object</tt> to return
      * @return the <tt>pair object</tt> at the specified position in this list
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
-    public Pair<K, V> get(int index){
+    public Pair<K, V> get(int index) {
         return pairs.get(index);
     }
 
     /**
      * Returns a <tt>pair object</tt> if its key equals search in this list.
      *
-     * @param  search key of the <tt>pair object</tt> to test its presence
+     * @param search key of the <tt>pair object</tt> to test its presence
      * @return the <tt>pair object</tt> if search is present in this list
      */
     public Pair<K, V> get(String search) {
@@ -123,16 +123,16 @@ public class PairList<K, V> implements Collection<Pair<K, V>> {
     /**
      * Returns an array containing all of the pair in this list
      * in proper sequence (from first to last element).
-     *
+     * <p/>
      * <p>The returned array will be "safe" in that no references to it are
      * maintained by this list.  (In other words, this method must allocate
      * a new array).  The caller is thus free to modify the returned array.
-     *
+     * <p/>
      * <p>This method acts as bridge between array-based and collection-based
      * APIs.
      *
      * @return an array containing all of the pairs in this list in
-     *         proper sequence
+     * proper sequence
      */
     @Override
     public Object[] toArray() {
@@ -175,9 +175,9 @@ public class PairList<K, V> implements Collection<Pair<K, V>> {
      * Removes the first occurrence of the specified element from this list.
      * If it is present.
      *
-     * @see {@link java.util.ArrayList#add}
      * @param o element to be removed from this list, if present.
      * @return <tt>true</tt> if this list contains the specified element.
+     * @see {@link java.util.ArrayList#add}
      */
     @Override
     public boolean remove(Object o) {
@@ -203,7 +203,7 @@ public class PairList<K, V> implements Collection<Pair<K, V>> {
      */
     public boolean containsAllPair(Collection<Pair<K, V>> c) {
         boolean flag = false;
-        for (Pair<K, V> pair : c){
+        for (Pair<K, V> pair : c) {
             flag = this.containsPair(pair);
         }
         return flag;
@@ -224,9 +224,9 @@ public class PairList<K, V> implements Collection<Pair<K, V>> {
      * Removes the occurrence of the specified element from this list.
      * If it is present.
      *
-     * @see {@link java.util.ArrayList#add}
      * @param c element to be removed from this list, if present.
      * @return <tt>true</tt> if this list contains the specified element.
+     * @see {@link java.util.ArrayList#add}
      */
     @Override
     public boolean removeAll(Collection<?> c) {

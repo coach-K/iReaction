@@ -20,7 +20,7 @@ import java.io.IOException;
  * @see Parser.PairFileParser
  * @since 1.7
  */
-public class ReactionParser  extends PairFileParser {
+public class ReactionParser extends PairFileParser {
 
     /**
      * Create a reaction element
@@ -43,19 +43,19 @@ public class ReactionParser  extends PairFileParser {
     /**
      * Returns the next #Reaction element
      *
-     * @return     the next #Reaction element, or <code>null</code> if the end of the
-     *             stream is reached.
-     * @exception  IOException  if this input stream has been closed by
-     *             invoking its {@link Parser.PairFileParser#close()} method,
-     *             or an I/O error occurs.
-     * @see        java.io.FilterInputStream#in
+     * @return the next #Reaction element, or <code>null</code> if the end of the
+     * stream is reached.
+     * @throws IOException if this input stream has been closed by
+     *                     invoking its {@link Parser.PairFileParser#close()} method,
+     *                     or an I/O error occurs.
+     * @see java.io.FilterInputStream#in
      */
     public synchronized Reaction readReaction() throws IOException {
         Pair pair;
         Reaction reaction1 = null;
 
-        while ((pair = super.readPair('-')) != null){
-            if (super.isEndOfBlock()){
+        while ((pair = super.readPair('-')) != null) {
+            if (super.isEndOfBlock()) {
                 reaction1 = reaction;
                 reaction = new Reaction();
                 break;

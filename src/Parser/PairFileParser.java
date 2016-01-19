@@ -42,7 +42,7 @@ public class PairFileParser {
     /**
      * Element determine the end of a block in a file.
      * More formally, if and only if <tt>e</tt> is not null such that
-     *
+     * <p/>
      * {@code e != null}
      */
     private String END_OF_BLOCK;
@@ -203,17 +203,17 @@ public class PairFileParser {
     /**
      * Set characters to determine the end of a block
      * More formally, This invokes if and only if file is structured in blocks
-     *
+     * <p/>
      * {@literal
      * <tt>pair file example</tt>
-     *
+     * <p/>
      * NAME = JOHN DOE
      * POSITION = TRAINER
      * ---------------
      * NAME = JANE DOE
      * POSITION = FELOW
      * --------------
-     *
+     * <p/>
      * The hyphens (--) signifies the end of block.
      * }
      *
@@ -239,7 +239,7 @@ public class PairFileParser {
      * @throws IOException if BufferedInputStream and FileInputStream was not closed
      */
     public void close() throws IOException {
-        if (bufferedInputStream != null && fileInputStream != null){
+        if (bufferedInputStream != null && fileInputStream != null) {
             bufferedInputStream.close();
             fileInputStream.close();
         }
@@ -249,8 +249,8 @@ public class PairFileParser {
      * Populates the Pair buffer element with file content based on this delimiter
      * in order to create a pair element
      *
-     * @param delimiter determines the key and value to create a pair element
-     * @param currentChar read by buffered input stream
+     * @param delimiter    determines the key and value to create a pair element
+     * @param currentChar  read by buffered input stream
      * @param previousChar read by buffered input stream
      */
     private void loadKeyValue(char delimiter, char currentChar, char previousChar) {
