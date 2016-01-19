@@ -18,7 +18,7 @@ public class PairFileParserTest {
     @Before
     public void setUp() throws Exception {
         String DESKTOP_PATH = System.getProperty("user.home");
-        String FILE_NAME = DESKTOP_PATH + "\\desktop\\simple.txt";
+        String FILE_NAME = DESKTOP_PATH + "\\desktop\\pairparsertest.txt";
 
         File file = new File(FILE_NAME);
         pairFileParser = new PairFileParser(file);
@@ -78,6 +78,24 @@ public class PairFileParserTest {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testClose() throws Exception {
+        testEndOfBlock();
+        try {
+            while (pairFileParser.readPair('=') != null){
+                if (pairFileParser.isEndOfBlock()){
+                    assertTrue(true);
+                    break;
+                }
+            }
+            assertNotNull(pairFileParser.readPair('='));
+            pairFileParser.close();
+            pairFileParser.readPair('=');
+        } catch (IOException e) {
+            assertTrue(e.getMessage().contains("Stream closed"));
         }
     }
 }
