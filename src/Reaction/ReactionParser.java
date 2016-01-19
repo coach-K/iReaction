@@ -41,7 +41,8 @@ public class ReactionParser extends PairFileParser {
     }
 
     /**
-     * Returns the next #Reaction element
+     * Returns the next #Reaction element, or <code>null</code> if the end of the
+     * stream is reached.
      *
      * @return the next #Reaction element, or <code>null</code> if the end of the
      * stream is reached.
