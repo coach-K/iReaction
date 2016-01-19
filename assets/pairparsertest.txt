@@ -1,0 +1,10 @@
+NAME = JOHN DOE
+GENDER = MALE
+SCHOOL = ANDELA
+CLASS = 1111
+--------------------
+NAME = JANE DOE
+GENDER = FEMALE
+SCHOOL = ANDELA
+CLASS = 1112
+--------------------
