@@ -22,9 +22,14 @@ import java.io.*;
 public class PairFileParser {
 
     /**
-     * Reads the content of a file
+     * Creates BufferedInputStream
      */
     private BufferedInputStream bufferedInputStream;
+
+    /**
+     * Creates FileInputStream
+     */
+    private FileInputStream fileInputStream;
 
     /**
      * Stores the content of a file as key and value
@@ -77,7 +82,7 @@ public class PairFileParser {
      */
     public PairFileParser(File file) throws FileNotFoundException {
         if (file.exists()) {
-            FileInputStream fileInputStream = new FileInputStream(file);
+            fileInputStream = new FileInputStream(file);
             this.bufferedInputStream = new BufferedInputStream(fileInputStream);
             this.pairBuffer = new PairBuffer();
             currStringBuffer = new StringBuffer();
@@ -87,12 +92,13 @@ public class PairFileParser {
     }
 
     /**
-     * Reads the content of a file by character and convert it to pair element
-     * Uses deimiter to determine the key and value of the read content
+     * Reads the content of a file by character
+     * Returns next pair element
+     * Uses delimiter to determine the key and value of the read content
      * Throws IOException if file cannot be read
      *
      * @param delimiter to determines the key and value
-     * @return a pair element
+     * @return next pair element
      * @throws IOException if file cannot be read.
      */
     public synchronized Pair readPair(char delimiter) throws IOException {
@@ -225,6 +231,18 @@ public class PairFileParser {
      */
     public boolean isEndOfBlock() {
         return endOfBlock;
+    }
+
+    /**
+     * Close BufferedInputStream and FileInputStream
+     *
+     * @throws IOException if BufferedInputStream and FileInputStream was not closed
+     */
+    public void close() throws IOException {
+        if (bufferedInputStream != null && fileInputStream != null){
+            bufferedInputStream.close();
+            fileInputStream.close();
+        }
     }
 
     /**
