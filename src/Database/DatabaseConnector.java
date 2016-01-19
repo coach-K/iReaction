@@ -47,9 +47,14 @@ public class DatabaseConnector {
     private String database;
 
     /**
+     * detect a connection
+     */
+    private boolean active;
+
+    /**
      * constructs this class with the specified argument
      *
-     * @param url to a database
+     * @param url      to a database
      * @param username to a database
      * @param password to a database
      */
@@ -62,7 +67,7 @@ public class DatabaseConnector {
     /**
      * constructs this class with the specified arguments
      *
-     * @param url to a database
+     * @param url      to a database
      * @param username to a database
      * @param password to a database
      * @param database to a database
@@ -82,15 +87,11 @@ public class DatabaseConnector {
      * @return a connection elemet
      * @throws java.lang.Exception
      */
-    public Connection connect() {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            this.connection = (this.database != null) ?
-                    DriverManager.getConnection(this.url + "/" + database, this.username, this.password) :
-                    DriverManager.getConnection(this.url, this.username, this.password);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public Connection connect() throws Exception {
+        Class.forName("com.mysql.jdbc.Driver");
+        this.connection = (this.database != null) ?
+                DriverManager.getConnection(this.url + "/" + database, this.username, this.password) :
+                DriverManager.getConnection(this.url, this.username, this.password);
         return connection;
     }
 
@@ -110,5 +111,9 @@ public class DatabaseConnector {
 
     public void setDatabase(String database) {
         this.database = database;
+    }
+
+    public boolean isActive() throws SQLException {
+        return !connection.isClosed();
     }
 }
