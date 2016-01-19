@@ -105,15 +105,22 @@ public class DatabaseConnector {
             connection.close();
     }
 
+    /**
+     * Returns <code>true</code> is and only is this connection
+     * is not closed.
+     *
+     * @return a boolean <code>true</code> or <code>false</code>
+     * @throws SQLException if error occurs.
+     */
+    public boolean isActive() throws SQLException {
+        return !connection.isClosed();
+    }
+
     public String getDatabase() {
         return this.database;
     }
 
     public void setDatabase(String database) {
         this.database = database;
-    }
-
-    public boolean isActive() throws SQLException {
-        return !connection.isClosed();
     }
 }
