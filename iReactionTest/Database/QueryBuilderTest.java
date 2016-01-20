@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class QueryBuilderTest {
 
@@ -23,7 +23,7 @@ public class QueryBuilderTest {
 
     }
 
-    private void testTableAndColumn(){
+    private void testTableAndColumn() {
         query = queryBuilder.table()
                 .addColumn("ID", QueryBuilder.INTEGER, true)
                 .addColumn("FIRSTNAME").addColumn("LASTNAME")
@@ -69,7 +69,7 @@ public class QueryBuilderTest {
         assertEquals(query, "SELECT * FROM TABLE_NAME");
     }
 
-    private ArrayList<String> addFields(){
+    private ArrayList<String> addFields() {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("FIRSTNAME");
         arrayList.add("LASTNAME");
