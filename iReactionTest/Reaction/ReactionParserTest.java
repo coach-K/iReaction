@@ -1,5 +1,6 @@
 package Reaction;
 
+import Constant.FilePath;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,10 +16,7 @@ public class ReactionParserTest {
 
     @Before
     public void setUp() throws Exception {
-        String DESKTOP_PATH = System.getProperty("user.dir");
-        String FILE_NAME = DESKTOP_PATH + "\\assets\\react.txt";
-
-        File file = new File(FILE_NAME);
+        File file = new File(FilePath.REACT_FILE_PATH.toString());
         reactionParser = new ReactionParser(file);
     }
 
