@@ -48,6 +48,5 @@ public class LogWriter {
 
         this.formatter.format(format, tag, date, message);
         this.formatter.flush();
-        System.out.printf(format, tag, date, message);
     }
 }
