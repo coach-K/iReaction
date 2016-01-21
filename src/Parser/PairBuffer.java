@@ -6,17 +6,17 @@ import java.util.ArrayList;
 
 /**
  * This is a Pair Buffer class, this class appends strings as key, and string as values
- *
+ * <p/>
  * <p>This class is a member of the
  * <a href="{@docRoot}/../src/parser/pairbuffer/index.html">
  * Java Buffer Framework</a>.
  *
  * @author OGUNDE KEHINDE
- * @see     Pair
- * @see     java.lang.String
- * @see     java.util.ArrayList
- * @see     java.lang.StringBuffer
- * @since   1.7
+ * @see Pair
+ * @see java.lang.String
+ * @see java.util.ArrayList
+ * @see java.lang.StringBuffer
+ * @since 1.7
  */
 public class PairBuffer {
 
@@ -56,13 +56,15 @@ public class PairBuffer {
     /**
      * Creates a Pair element using #key and #value
      * Returns a Pair element such that <tt>e</tt>
-     *
+     * <p/>
      * {@code toKey() == null ? toValue() == null : toPair() }
+     *
      * @return a Pair element
      */
-    public synchronized Pair<String, ArrayList<String>> toPair(){
+    public synchronized Pair<String, ArrayList<String>> toPair() {
         if (pair.getKey().equals(toKey())) {
-            updateValue(toValue());;
+            updateValue(toValue());
+            ;
         } else {
             addValue(toKey(), toValue());
         }
@@ -91,7 +93,7 @@ public class PairBuffer {
     /**
      * returns this sequence as string.
      */
-    public String toKey(){
+    public String toKey() {
         key.trimToSize();
         return key.toString().trim();
     }
@@ -99,7 +101,7 @@ public class PairBuffer {
     /**
      * returns this sequence as string.
      */
-    public String toValue(){
+    public String toValue() {
         value.trimToSize();
         return value.toString().trim();
     }
@@ -109,7 +111,7 @@ public class PairBuffer {
      *
      * @param value Add value to bottom of this list.
      */
-    private void updateValue(String value){
+    private void updateValue(String value) {
         mValue = pair.getValue();
         mValue.add(value);
         pair.setValue(mValue);
@@ -118,10 +120,10 @@ public class PairBuffer {
     /**
      * If this key is null, instantiate this list and add element to this list.
      *
-     * @param key to check if its null
+     * @param key   to check if its null
      * @param value value to instantiate and populate.
      */
-    private void addValue(String key, String value){
+    private void addValue(String key, String value) {
         mValue = new ArrayList<>();
         mValue.add(value);
         pair = new Pair<>(key, mValue);
@@ -130,7 +132,7 @@ public class PairBuffer {
     /**
      * Re-instantiate this sequence #key and #value
      */
-    private void resetBuffer(){
+    private void resetBuffer() {
         value = new StringBuffer();
         key = new StringBuffer();
     }

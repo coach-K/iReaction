@@ -124,8 +124,8 @@ public class PairFileParser {
                     endOfBlock = true;
                     pair = pairBuffer.toPair();
 
-                    while (currentChar != '\n')
-                        currentChar = (char) read();
+                    currentChar = (char) read();
+                    currentChar = (char) read();
 
                     break;
                 }
