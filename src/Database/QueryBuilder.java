@@ -185,15 +185,15 @@ public class QueryBuilder {
     private String columnType(String TYPE) {
         switch (TYPE) {
             case INTEGER:
-                return (" int ");
+                return (" INT ");
             case TEXT:
-                return (" text(100) ");
+                return (" TEXT ");
             case FLOAT:
-                return (" double(100) ");
+                return (" DOUBLE(100) ");
             case BOOLEAN:
-                return (" tinyint(100) ");
+                return (" TINYINT(1) ");
             default:
-                return (" varchar(55) ");
+                return (" VARCHAR(100) ");
         }
     }
 
