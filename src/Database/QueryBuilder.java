@@ -92,7 +92,9 @@ public class QueryBuilder {
      * @return this context
      */
     public QueryBuilder addColumn(String columnName) {
+        query.append("`");
         query.append(columnName);
+        query.append("`");
         query.append(columnType(""));
         query.append(" , ");
         return this;
@@ -109,7 +111,9 @@ public class QueryBuilder {
      * @return this context
      */
     public QueryBuilder addColumn(String columnName, String TYPE) {
+        query.append("`");
         query.append(columnName);
+        query.append("`");
         query.append(columnType(TYPE));
         query.append(" , ");
         return this;
@@ -131,7 +135,9 @@ public class QueryBuilder {
      * @return this context
      */
     public QueryBuilder addColumn(String columnName, String TYPE, boolean primaryKey) {
+        query.append("`");
         query.append(columnName);
+        query.append("`");
         query.append(columnType(TYPE));
         query.append(primaryKey && TYPE.equals(INTEGER) ? " primary key unique auto_increment " : " primary key unique ");
         query.append(" , ");

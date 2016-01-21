@@ -21,6 +21,14 @@ import java.util.ArrayList;
 public class DatabaseManager {
 
     /**
+     * Static constants
+     */
+    public static final String INTEGER = "INTEGER";
+    public static final String FLOAT = "FLOAT";
+    public static final String TEXT = "TEXT";
+    public static final String BOOLEAN = "BOOLEAN";
+
+    /**
      * Stores an active connection to a database
      */
     private Connection connection;
@@ -60,7 +68,7 @@ public class DatabaseManager {
      * Accepts a table to perform CRUD operations.
      *
      * @param connection to perform SQL operations
-     * @param table to perform CRUD operations
+     * @param table      to perform CRUD operations
      */
     public DatabaseManager(Connection connection, String table) {
         this(connection);
@@ -70,10 +78,11 @@ public class DatabaseManager {
     /**
      * Prepares an SQL create new database query with the specified element
      * Accept a database to be created
+     *
      * @param database to be created
      * @return this context
      */
-    public DatabaseManager createNewDatabase(String database){
+    public DatabaseManager createNewDatabase(String database) {
         this.values = new ArrayList<>();
         queryBuilder = new QueryBuilder().database(database);
         return this;
@@ -82,10 +91,11 @@ public class DatabaseManager {
     /**
      * Prepares an SQL create new table query with the specified element
      * Accept a table to be created
+     *
      * @param table to be created
      * @return this context
      */
-    public DatabaseManager createNewTable(String table){
+    public DatabaseManager createNewTable(String table) {
         this.values = new ArrayList<>();
         this.table = table;
         queryBuilder = new QueryBuilder(this.table).table();
@@ -110,7 +120,7 @@ public class DatabaseManager {
 
     /**
      * set table name
-     *
+     * <p/>
      * Accept table name
      */
     public void setTable(String table) {
@@ -119,20 +129,20 @@ public class DatabaseManager {
 
     /**
      * Append specified element to the this statement
-     *
+     * <p/>
      * Accept field name to be appended to the existing statement
      *
      * @param name to be appended to the existing statement
      * @return this context
      */
-    public DatabaseManager addColumn(String name){
+    public DatabaseManager addColumn(String name) {
         queryBuilder.addColumn(name);
         return this;
     }
 
     /**
      * Append specified elements to the this statement
-     *
+     * <p/>
      * Accept field name to be appended to the existing statement
      * Accept field type to be appended to the existing statement
      *
@@ -140,7 +150,7 @@ public class DatabaseManager {
      * @param type to be appended to the existing statement
      * @return this context
      */
-    public DatabaseManager addColumn(String name, String type){
+    public DatabaseManager addColumn(String name, String type) {
         queryBuilder.addColumn(name, type);
         return this;
     }
@@ -149,14 +159,14 @@ public class DatabaseManager {
     /**
      * Create a primaryKey column
      * Append specified elements to the this statement
-     *
+     * <p/>
      * Accept field name to be appended to the existing statement
      * as Primary Key
      *
      * @param name to be appended to the existing statement
      * @return this context
      */
-    public DatabaseManager addPrimaryKey(String name){
+    public DatabaseManager addPrimaryKey(String name) {
         queryBuilder.addColumn(name, QueryBuilder.INTEGER, true);
         return this;
     }
@@ -164,7 +174,7 @@ public class DatabaseManager {
     /**
      * Create a primaryKey column
      * Append specified elements to the this statement
-     *
+     * <p/>
      * Accept field name to be appended to the existing statement
      * as Primary Key
      *
@@ -172,7 +182,7 @@ public class DatabaseManager {
      * @param type to be appended to the existing statement
      * @return this context
      */
-    public DatabaseManager addPrimaryKey(String name, String type){
+    public DatabaseManager addPrimaryKey(String name, String type) {
         queryBuilder.addColumn(name, type, true);
         return this;
     }
@@ -182,7 +192,7 @@ public class DatabaseManager {
      *
      * @return this context
      */
-    public DatabaseManager select(){
+    public DatabaseManager select() {
         this.values = new ArrayList<>();
         queryBuilder = new QueryBuilder(this.table).select();
         return this;
@@ -194,7 +204,7 @@ public class DatabaseManager {
      * @param keys fields to select from
      * @return this context
      */
-    public DatabaseManager select(ArrayList<String> keys){
+    public DatabaseManager select(ArrayList<String> keys) {
         this.values = new ArrayList<>();
         queryBuilder = new QueryBuilder(this.table).select(keys);
         return this;
@@ -206,7 +216,7 @@ public class DatabaseManager {
      * @param values values to be inserted
      * @return this context
      */
-    public DatabaseManager insert(ArrayList<String> values){
+    public DatabaseManager insert(ArrayList<String> values) {
         this.values = values;
         queryBuilder = new QueryBuilder(this.table).insert(values.size());
         return this;
@@ -216,10 +226,10 @@ public class DatabaseManager {
      * Creates SQL INSERT statement with the specified fields and values
      *
      * @param values values to be inserted
-     * @param keys fields to be insert to
+     * @param keys   fields to be insert to
      * @return this context
      */
-    public DatabaseManager insert(ArrayList<String> keys, ArrayList<String> values){
+    public DatabaseManager insert(ArrayList<String> keys, ArrayList<String> values) {
         this.values = values;
         queryBuilder = new QueryBuilder(this.table).insert(keys);
         return this;
@@ -231,7 +241,7 @@ public class DatabaseManager {
      * @param keys fields to be updated
      * @return this context
      */
-    public DatabaseManager update(ArrayList<String> keys, ArrayList<String> values){
+    public DatabaseManager update(ArrayList<String> keys, ArrayList<String> values) {
         this.values = values;
         queryBuilder = new QueryBuilder(this.table).update(keys);
         return this;
@@ -242,7 +252,7 @@ public class DatabaseManager {
      *
      * @return this context
      */
-    public DatabaseManager delete(){
+    public DatabaseManager delete() {
         this.values = new ArrayList<>();
         queryBuilder = new QueryBuilder(this.table).delete();
         return this;
@@ -251,11 +261,11 @@ public class DatabaseManager {
     /**
      * Append SQL WHERE statement with the specified fields
      *
-     * @param key to query
+     * @param key   to query
      * @param value corresponding value
      * @return this context
      */
-    public DatabaseManager where(String key, String value){
+    public DatabaseManager where(String key, String value) {
         this.values.add(value);
         queryBuilder.where(key);
         return this;
@@ -264,11 +274,11 @@ public class DatabaseManager {
     /**
      * Append SQL AND statement with the specified fields
      *
-     * @param key to query
+     * @param key   to query
      * @param value corresponding value
      * @return this context
      */
-    public DatabaseManager and(String key, String value){
+    public DatabaseManager and(String key, String value) {
         this.values.add(value);
         queryBuilder.and(key);
         return this;
@@ -277,12 +287,12 @@ public class DatabaseManager {
     /**
      * Append SQL WHERE LIKE statement with the specified fields
      *
-     * @param key to query
+     * @param key   to query
      * @param value corresponding value
      * @return this context
      */
-    public DatabaseManager whereLike(String key, String value){
-        this.values.add("%"+value+"%");
+    public DatabaseManager whereLike(String key, String value) {
+        this.values.add("%" + value + "%");
         queryBuilder.whereLike(key);
         return this;
     }
@@ -290,11 +300,11 @@ public class DatabaseManager {
     /**
      * Append SQL AND LIKE statement with the specified fields
      *
-     * @param key to query
+     * @param key   to query
      * @param value corresponding value
      * @return this context
      */
-    public DatabaseManager andLike(String key, String value){
+    public DatabaseManager andLike(String key, String value) {
         this.values.add(value);
         queryBuilder.andLike(key);
         return this;
@@ -308,13 +318,13 @@ public class DatabaseManager {
      *
      * @return a {@code ResultSet}
      */
-    public ResultSet executeQuery(){
+    public ResultSet executeQuery() {
         try {
-            if (values.size() > 0){
+            if (values.size() > 0) {
                 preparedStatement = connection.prepareStatement(queryBuilder.build());
                 int count = 1;
 
-                for (String value : values){
+                for (String value : values) {
                     preparedStatement.setObject(count++, value);
                 }
 
@@ -334,13 +344,12 @@ public class DatabaseManager {
      * such that {@code <tt>n</tt> >= 0}
      * {@literal example: number of rows affected 0, 1, ... n}
      *
-     *
      * @return an integer value
      */
-    public int execute(){
+    public int execute() {
         int flag = 0;
         try {
-            if (values.size() == 0){
+            if (values.size() == 0) {
                 statement = connection.createStatement();
 
                 flag = statement.executeUpdate(queryBuilder.build());
@@ -358,13 +367,13 @@ public class DatabaseManager {
      *
      * @return a {@code ResultSet}
      */
-    public void executeUpdate(){
+    public void executeUpdate() {
         try {
-            if (values.size() > 0){
+            if (values.size() > 0) {
                 preparedStatement = connection.prepareStatement(queryBuilder.build());
                 int count = 1;
 
-                for (String value : values){
+                for (String value : values) {
                     preparedStatement.setObject(count++, value);
                 }
 
@@ -381,7 +390,7 @@ public class DatabaseManager {
     /**
      * Disconnects this connection
      */
-    public void disconnect(){
+    public void disconnect() {
         connection = null;
         statement = null;
         preparedStatement = null;
@@ -389,18 +398,20 @@ public class DatabaseManager {
     }
 
     /**
+     * Returns this connection
+     *
+     * @return this connection
+     */
+    public Connection getConnection() {
+        return this.connection;
+    }
+
+    /**
      * Set a connection with the specified element
+     *
      * @param connection
      */
     public void setConnection(Connection connection) {
         this.connection = connection;
-    }
-
-    /**
-     * Returns this connection
-     * @return this connection
-     */
-    public Connection getConnection(){
-        return this.connection;
     }
 }

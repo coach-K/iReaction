@@ -23,7 +23,7 @@ public enum Config {
     /**
      * MySQL database to establish connection
      */
-    DATABASE("reactiondb"),
+    DATABASE("reactiondbtest2"),
 
     /**
      * MySQL table to query
@@ -37,7 +37,7 @@ public enum Config {
      *
      * @param CONSTANT to be set
      */
-    private Config(String CONSTANT){
+    private Config(String CONSTANT) {
         this.CONSTANT = CONSTANT;
     }
 
