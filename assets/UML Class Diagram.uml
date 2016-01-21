@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Main.Main</OriginalElement>
+  <nodes>
+    <node x="1372.0" y="934.0">Database.DatabaseManager</node>
+    <node x="0.0" y="1154.0">Parser.PairFileParser</node>
+    <node x="910.9999999999999" y="1874.5">Reaction.Buffer.Buffers</node>
+    <node x="1482.0" y="280.0">Database.QueryBuilder</node>
+    <node x="1620.0367647058822" y="2132.0">Reaction.Thread.LogThread</node>
+    <node x="775.4999999999999" y="1319.5">Reaction.Reaction</node>
+    <node x="1046.0" y="1220.0">Logger.Log</node>
+    <node x="0.0" y="2421.0">Database.Config</node>
+    <node x="560.9999999999999" y="357.0">Pair.PairList</node>
+    <node x="286.0" y="2421.0">Constant.FilePath</node>
+    <node x="556.265931372549" y="2132.0">Reaction.Thread.ReactionThread</node>
+    <node x="2012.125" y="2110.0">Reaction.Thread.DatabaseThread</node>
+    <node x="57.0" y="423.0">Parser.PairBuffer</node>
+    <node x="348.25" y="0.0">Pair.Pair</node>
+    <node x="1613.1875" y="2324.0">Main.Main</node>
+    <node x="2247.0" y="1198.0">Database.DatabaseConnector</node>
+    <node x="1970.125" y="1830.0">Reaction.ReactionDBWriter</node>
+    <node x="1629.5367647058822" y="1896.0">Logger.LogWriter</node>
+    <node x="609.751225490196" y="1896.0">Reaction.ReactionParser</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Parser.PairFileParser" target="Parser.PairBuffer">
+      <point x="-149.5" y="-203.0" />
+      <point x="149.5" y="909.0" />
+      <point x="178.0" y="909.0" />
+      <point x="-121.0" y="159.0" />
+    </edge>
+    <edge source="Reaction.Reaction" target="Pair.PairList">
+      <point x="0.0" y="-37.5" />
+      <point x="0.0" y="225.0" />
+    </edge>
+    <edge source="Reaction.Thread.LogThread" target="Logger.LogWriter">
+      <point x="-54.75" y="-60.0" />
+      <point x="1674.7867647058822" y="2085.0" />
+      <point x="1679.5367647058822" y="2085.0" />
+      <point x="-50.0" y="49.0" />
+    </edge>
+    <edge source="Pair.PairList" target="Pair.Pair">
+      <point x="1.1368683772161603E-13" y="-225.0" />
+      <point x="841.5" y="255.0" />
+      <point x="617.4166666666667" y="255.0" />
+      <point x="107.66666666666674" y="115.0" />
+    </edge>
+    <edge source="Reaction.ReactionParser" target="Parser.PairFileParser">
+      <point x="-62.33333333333337" y="-49.0" />
+      <point x="640.9178921568626" y="1810.0" />
+      <point x="299.0" y="1810.0" />
+      <point x="0.0" y="203.0" />
+    </edge>
+    <edge source="Reaction.Thread.ReactionThread" target="Reaction.ReactionParser">
+      <point x="67.75" y="-60.0" />
+      <point x="759.515931372549" y="2085.0" />
+      <point x="750.001225490196" y="2085.0" />
+      <point x="46.75" y="49.0" />
+    </edge>
+    <edge source="Reaction.ReactionDBWriter" target="Database.DatabaseManager">
+      <point x="-159.375" y="-115.0" />
+      <point x="2023.25" y="1810.0" />
+      <point x="1585.75" y="1810.0" />
+      <point x="-213.75" y="423.0" />
+    </edge>
+    <edge source="Parser.PairBuffer" target="Pair.Pair">
+      <point x="-121.0" y="-159.0" />
+      <point x="178.0" y="255.0" />
+      <point x="402.08333333333326" y="255.0" />
+      <point x="-107.66666666666669" y="115.0" />
+    </edge>
+    <edge source="Main.Main" target="Reaction.Thread.ReactionThread">
+      <point x="-51.66666666666674" y="-26.0" />
+      <point x="1639.020833333333" y="2299.0" />
+      <point x="691.765931372549" y="2299.0" />
+      <point x="0.0" y="60.0" />
+    </edge>
+    <edge source="Reaction.ReactionDBWriter" target="Database.DatabaseConnector">
+      <point x="159.375" y="-115.0" />
+      <point x="2342.0" y="1810.0" />
+      <point x="2562.0" y="1810.0" />
+      <point x="105.0" y="159.0" />
+    </edge>
+    <edge source="Reaction.ReactionParser" target="Reaction.Reaction">
+      <point x="0.0" y="-49.0" />
+      <point x="703.251225490196" y="1800.0" />
+      <point x="797.4999999999999" y="1800.0" />
+      <point x="-44.0" y="37.5" />
+    </edge>
+    <edge source="Database.DatabaseManager" target="Database.QueryBuilder">
+      <point x="213.75" y="-423.0" />
+      <point x="2013.25" y="909.0" />
+      <point x="1958.25" y="909.0" />
+      <point x="158.75" y="302.0" />
+    </edge>
+    <edge source="Main.Main" target="Reaction.Thread.DatabaseThread">
+      <point x="51.66666666666674" y="-26.0" />
+      <point x="1742.3541666666665" y="2299.0" />
+      <point x="2182.625" y="2299.0" />
+      <point x="0.0" y="82.0" />
+    </edge>
+    <edge source="Main.Main" target="Reaction.Thread.LogThread">
+      <point x="0.0" y="-26.0" />
+      <point x="1690.6875" y="2299.0" />
+      <point x="1729.5367647058822" y="2299.0" />
+      <point x="0.0" y="60.0" />
+    </edge>
+    <edge source="Reaction.Thread.DatabaseThread" target="Reaction.ReactionDBWriter">
+      <point x="-85.25" y="-82.0" />
+      <point x="2097.375" y="2085.0" />
+      <point x="2076.375" y="2085.0" />
+      <point x="-106.25" y="115.0" />
+    </edge>
+    <edge source="Reaction.Buffer.Buffers" target="Logger.Log">
+      <point x="96.0" y="-70.5" />
+      <point x="0.0" y="137.0" />
+    </edge>
+    <edge source="Reaction.Buffer.Buffers" target="Reaction.Reaction">
+      <point x="-96.0" y="-70.5" />
+      <point x="1006.9999999999999" y="1810.0" />
+      <point x="885.4999999999999" y="1810.0" />
+      <point x="44.0" y="37.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.2559456398640997" x="1333.5" y="1314.4999999999998" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
