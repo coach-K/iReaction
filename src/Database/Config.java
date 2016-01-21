@@ -23,7 +23,7 @@ public enum Config {
     /**
      * MySQL database to establish connection
      */
-    DATABASE("reactiondbtest2"),
+    DATABASE("reactiondb"),
 
     /**
      * MySQL table to query
