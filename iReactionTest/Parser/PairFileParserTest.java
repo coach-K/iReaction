@@ -1,5 +1,6 @@
 package Parser;
 
+import Constant.FilePath;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,10 +18,7 @@ public class PairFileParserTest {
 
     @Before
     public void setUp() throws Exception {
-        String DESKTOP_PATH = System.getProperty("user.dir");
-        String FILE_NAME = DESKTOP_PATH + "\\assets\\pairparsertest.txt";
-
-        File file = new File(FILE_NAME);
+        File file = new File(FilePath.DIFFERENT_FILE_PATH.toString());
         pairFileParser = new PairFileParser(file);
     }
 
