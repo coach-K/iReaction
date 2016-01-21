@@ -1,7 +1,7 @@
 package Logger;
 
 /**
- * This class creates an element of a Log
+ * This class creates element of a Log
  */
 public class Log {
 
