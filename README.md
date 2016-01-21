@@ -113,6 +113,7 @@ public class SimpleCRUD {
 Its `Log` and `LogWriter` classes logs and write log object to file respectively at a fast speed.
 
 >Simple Logger Example
+
 ```Java
 public class SimpleLogger {
 
