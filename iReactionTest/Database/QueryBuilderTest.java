@@ -28,7 +28,7 @@ public class QueryBuilderTest {
                 .addColumn("ID", QueryBuilder.INTEGER, true)
                 .addColumn("FIRSTNAME").addColumn("LASTNAME")
                 .build();
-        assertEquals(query, "CREATE TABLE IF NOT EXISTS TABLE_NAME ( ID int  primary key unique auto_increment  , FIRSTNAME varchar(55)  , LASTNAME varchar(55)   ) ");
+        assertEquals(query, "CREATE TABLE IF NOT EXISTS TABLE_NAME ( `ID` INT  primary key unique auto_increment  , `FIRSTNAME` VARCHAR(100)  , `LASTNAME` VARCHAR(100)   ) ");
     }
 
     @Test

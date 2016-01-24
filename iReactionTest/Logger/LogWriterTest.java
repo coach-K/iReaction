@@ -28,7 +28,11 @@ public class LogWriterTest {
     public void testWrite() throws Exception {
         logWriter.write(Log.p(
                 this.getClass().getSimpleName(),
-                "wrote to file", System.currentTimeMillis()
-        ));
+                "wrote to file"));
+    }
+
+    @Test
+    public void testClose() throws Exception {
+        logWriter.close();
     }
 }

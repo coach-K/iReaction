@@ -16,7 +16,7 @@ public class DatabaseManagerTest {
 
     @Before
     public void setUp() throws Exception {
-        databaseConnector = new DatabaseConnector(Config.URL.toString(), Config.USERNAME.toString(), Config.PASSWORD.toString());
+        databaseConnector = new DatabaseConnector(Config.URL.toString(), Config.USERNAME.toString(), Config.PASSWORD.toString(), Config.MYSQL_DRIVER.toString());
         databaseManager = new DatabaseManager(databaseConnector.connect());
     }
 
