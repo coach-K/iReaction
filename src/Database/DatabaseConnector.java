@@ -46,6 +46,8 @@ public class DatabaseConnector {
      */
     private String database;
 
+    private String driver;
+
     /**
      * detect a connection
      */
@@ -53,15 +55,16 @@ public class DatabaseConnector {
 
     /**
      * constructs this class with the specified argument
-     *
-     * @param url      to a database
+     *  @param url      to a database
      * @param username to a database
      * @param password to a database
+     * @param driver
      */
-    public DatabaseConnector(String url, String username, String password) {
+    public DatabaseConnector(String url, String username, String password, String driver) {
         this.url = url;
         this.username = username;
         this.password = password;
+        this.driver = driver;
     }
 
     /**
@@ -72,8 +75,8 @@ public class DatabaseConnector {
      * @param password to a database
      * @param database to a database
      */
-    public DatabaseConnector(String url, String username, String password, String database) {
-        this(url, username, password);
+    public DatabaseConnector(String url, String username, String password, String database, String driver) {
+        this(url, username, password, driver);
         this.database = database;
     }
 
@@ -84,11 +87,11 @@ public class DatabaseConnector {
      * Returns a Connection element if and only if
      * connection throws no errors.
      *
-     * @return a connection elemet
+     * @return a connection element
      * @throws java.lang.Exception
      */
     public Connection connect() throws Exception {
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName(this.driver);
         this.connection = (this.database != null) ?
                 DriverManager.getConnection(this.url + "/" + database, this.username, this.password) :
                 DriverManager.getConnection(this.url, this.username, this.password);

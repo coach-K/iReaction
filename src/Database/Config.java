@@ -28,7 +28,11 @@ public enum Config {
     /**
      * MySQL table to query
      */
-    TABLE("reactions");
+    TABLE("reactions"),
+    /**
+     * MySQL Driver
+     */
+    MYSQL_DRIVER("com.mysql.jdbc.Driver");
 
     private String CONSTANT;
 

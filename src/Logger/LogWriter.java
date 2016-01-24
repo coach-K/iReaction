@@ -49,4 +49,11 @@ public class LogWriter {
         this.formatter.format(format, tag, date, message);
         this.formatter.flush();
     }
+
+    /**
+     * Close this formatter
+     */
+    public synchronized void close(){
+        this.formatter.close();
+    }
 }

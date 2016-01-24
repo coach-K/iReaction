@@ -63,9 +63,7 @@ public class QueryBuilder {
      * @return this context
      */
     public QueryBuilder database(String database) {
-        query = new StringBuilder();
-        query.append("CREATE DATABASE IF NOT EXISTS ");
-        query.append(database);
+        initializeBuilder("CREATE DATABASE IF NOT EXISTS " + database);
         return this;
     }
 
@@ -76,11 +74,7 @@ public class QueryBuilder {
      * @return this context
      */
     public QueryBuilder table() {
-        query = new StringBuilder();
-        query.append("CREATE ");
-        query.append("TABLE IF NOT EXISTS ");
-        query.append(this.table);
-        query.append(" ( ");
+        initializeBuilder("CREATE TABLE IF NOT EXISTS " + this.table + " ( ");
         return this;
     }
 
@@ -92,10 +86,7 @@ public class QueryBuilder {
      * @return this context
      */
     public QueryBuilder addColumn(String columnName) {
-        query.append("`");
-        query.append(columnName);
-        query.append("`");
-        query.append(columnType(""));
+        appendColumn(columnName, columnType(""));
         query.append(" , ");
         return this;
     }
@@ -111,10 +102,7 @@ public class QueryBuilder {
      * @return this context
      */
     public QueryBuilder addColumn(String columnName, String TYPE) {
-        query.append("`");
-        query.append(columnName);
-        query.append("`");
-        query.append(columnType(TYPE));
+        appendColumn(columnName, columnType(TYPE));
         query.append(" , ");
         return this;
     }
@@ -135,10 +123,7 @@ public class QueryBuilder {
      * @return this context
      */
     public QueryBuilder addColumn(String columnName, String TYPE, boolean primaryKey) {
-        query.append("`");
-        query.append(columnName);
-        query.append("`");
-        query.append(columnType(TYPE));
+        appendColumn(columnName, TYPE);
         query.append(primaryKey && TYPE.equals(INTEGER) ? " primary key unique auto_increment " : " primary key unique ");
         query.append(" , ");
         return this;
@@ -152,16 +137,13 @@ public class QueryBuilder {
      */
     public String build() {
         String queryString = query.toString().trim();
-        query = new StringBuilder();
-        query.append(queryString);
+        initializeBuilder(queryString);
 
         if (query.charAt(query.length() - 1) == ',') {
             query = removeLastChar(query, ",");
             query.append(" ) ");
             return query.toString();
-        } else {
-            return query.toString();
-        }
+        } else return query.toString();
     }
 
     /**
@@ -184,16 +166,11 @@ public class QueryBuilder {
      */
     private String columnType(String TYPE) {
         switch (TYPE) {
-            case INTEGER:
-                return (" INT ");
-            case TEXT:
-                return (" TEXT ");
-            case FLOAT:
-                return (" DOUBLE(100) ");
-            case BOOLEAN:
-                return (" TINYINT(1) ");
-            default:
-                return (" VARCHAR(100) ");
+            case INTEGER: return (" INT ");
+            case TEXT: return (" TEXT ");
+            case FLOAT: return (" DOUBLE(100) ");
+            case BOOLEAN: return (" TINYINT(1) ");
+            default: return (" VARCHAR(100) ");
         }
     }
 
@@ -203,9 +180,7 @@ public class QueryBuilder {
      * @return this context
      */
     public QueryBuilder select() {
-        query = new StringBuilder();
-        query.append("SELECT * FROM ");
-        query.append(this.table);
+        initializeBuilder("SELECT * FROM " + this.table);
         return this;
     }
 
@@ -216,17 +191,13 @@ public class QueryBuilder {
      * @return this context
      */
     public QueryBuilder select(ArrayList<String> keys) {
-        query = new StringBuilder();
-        query.append(" SELECT ");
+        initializeBuilder(" SELECT ");
 
-        for (String key : keys) {
-            query.append(key);
-            query.append(" , ");
-        }
+        for (String key : keys)
+            appendQuery(key + " , ");
 
         query = removeLastChar(query, ",");
-        query.append(" FROM ");
-        query.append(this.table);
+        appendQuery(" FROM " + this.table);
         return this;
     }
 
@@ -237,9 +208,7 @@ public class QueryBuilder {
      * @return this context
      */
     public QueryBuilder insert(ArrayList<String> keys) {
-        query = new StringBuilder();
-        query.append("INSERT INTO ");
-        query.append(this.table);
+        initializeBuilder("INSERT INTO " + this.table);
 
         StringBuilder sb1 = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
@@ -259,9 +228,7 @@ public class QueryBuilder {
         sb1.append(" ) ");
         sb2.append(" ) ");
 
-        query.append(sb1.toString());
-        query.append(" VALUES ");
-        query.append(sb2.toString());
+        appendQuery(sb1.toString() + " VALUES " + sb2.toString());
         return this;
     }
 
@@ -272,14 +239,10 @@ public class QueryBuilder {
      * @return this context
      */
     public QueryBuilder insert(int size) {
-        query = new StringBuilder();
-        query.append("INSERT INTO ");
-        query.append(this.table);
-        query.append(" VALUES ( ");
+        initializeBuilder("INSERT INTO " + this.table + " VALUES ( ");
 
         while (size > 0) {
-            query.append(" ? ");
-            query.append(", ");
+            appendQuery(" ? " + ", ");
             size--;
         }
 
@@ -295,16 +258,10 @@ public class QueryBuilder {
      * @return this context
      */
     public QueryBuilder update(ArrayList<String> keys) {
-        query = new StringBuilder();
-        query.append("UPDATE ");
-        query.append(this.table);
-        query.append(" SET ");
+        initializeBuilder("UPDATE " + this.table + " SET ");
 
-        for (String key : keys) {
-            query.append(key);
-            query.append(" = ? ");
-            query.append(" , ");
-        }
+        for (String key : keys)
+            appendQuery(key + " = ? " + " , ");
 
         query = removeLastChar(query, ",");
         return this;
@@ -316,9 +273,7 @@ public class QueryBuilder {
      * @return this context
      */
     public QueryBuilder delete() {
-        query = new StringBuilder();
-        query.append("DELETE FROM ");
-        query.append(this.table);
+        initializeBuilder("DELETE FROM " + this.table);
         return this;
     }
 
@@ -329,9 +284,7 @@ public class QueryBuilder {
      * @return this context
      */
     public QueryBuilder where(String field) {
-        query.append(" WHERE ");
-        query.append(field);
-        query.append(" = ? ");
+        appendQuery(" WHERE " + field + " = ? ");
         return this;
     }
 
@@ -342,9 +295,7 @@ public class QueryBuilder {
      * @return this context
      */
     public QueryBuilder and(String field) {
-        query.append(" AND ");
-        query.append(field);
-        query.append(" = ? ");
+        appendQuery(" AND " + field + " = ? ");
         return this;
     }
 
@@ -355,9 +306,7 @@ public class QueryBuilder {
      * @return this context
      */
     public QueryBuilder whereLike(String field) {
-        query.append(" WHERE ");
-        query.append(field);
-        query.append(" LIKE ? ");
+        appendQuery(" WHERE " + field + " LIKE ? ");
         return this;
     }
 
@@ -368,9 +317,23 @@ public class QueryBuilder {
      * @return this context
      */
     public QueryBuilder andLike(String field) {
-        query.append(" AND ");
-        query.append(field);
-        query.append(" LIKE ? ");
+        appendQuery(" AND " + field + " LIKE ? ");
         return this;
+    }
+
+    private void initializeBuilder(String SQL){
+        query = new StringBuilder();
+        query.append(SQL);
+    }
+
+    private void appendColumn(String columnName, String type){
+        query.append("`");
+        query.append(columnName);
+        query.append("`");
+        query.append(columnType(type));
+    }
+
+    private void appendQuery(String SQL){
+        query.append(SQL);
     }
 }

@@ -79,7 +79,7 @@ public class DatabaseThread implements Runnable {
         try {
             Buffers.logBuffer.put(Log.p(this.getClass().getSimpleName(),
                     "collected UNIQUE-ID " + reaction.getUniqueId() +
-                            " from buffer.", System.currentTimeMillis()));
+                            " from buffer."));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

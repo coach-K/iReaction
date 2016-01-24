@@ -54,8 +54,7 @@ public class ReactionThread implements Runnable {
             while ((reaction = reactionParser.readReaction()) != null) {
                 Buffers.reactionBuffer.put(reaction);
                 Buffers.logBuffer.put(Log.p(this.getClass().getSimpleName(),
-                        "wrote UNIQUE-ID " + reaction.getUniqueId() + " to buffer.",
-                        System.currentTimeMillis()));
+                        "wrote UNIQUE-ID " + reaction.getUniqueId() + " to buffer."));
             }
         } catch (Exception e) {
             e.printStackTrace();

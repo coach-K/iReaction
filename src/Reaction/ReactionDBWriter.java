@@ -29,7 +29,7 @@ public class ReactionDBWriter {
      * @throws Exception if an error occurs
      */
     public ReactionDBWriter() throws Exception {
-        databaseConnector = new DatabaseConnector(Config.URL.toString(), Config.USERNAME.toString(), Config.PASSWORD.toString());
+        databaseConnector = new DatabaseConnector(Config.URL.toString(), Config.USERNAME.toString(), Config.PASSWORD.toString(), Config.MYSQL_DRIVER.toString());
         databaseManager = new DatabaseManager(databaseConnector.connect());
     }
 
