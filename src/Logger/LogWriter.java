@@ -1,7 +1,7 @@
-package Logger;
+package logger;
 
 
-import Util.DateFormatter;
+import util.DateFormatter;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -16,7 +16,7 @@ import java.util.Formatter;
  * writing to file and logging to console as output.
  *
  * @author OGUNDE KEHINDE
- * @see Logger.Log
+ * @see logger.Log
  * @see java.util.Formatter
  * @since 1.7
  */

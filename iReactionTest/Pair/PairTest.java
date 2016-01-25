@@ -1,4 +1,4 @@
-package Pair;
+package pair;
 
 import org.junit.After;
 import org.junit.Before;

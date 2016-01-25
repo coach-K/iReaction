@@ -1,8 +1,8 @@
-package Reaction.Buffer;
+package reaction.buffer;
 
 
-import Logger.Log;
-import Reaction.Reaction;
+import logger.Log;
+import reaction.Reaction;
 
 import java.util.concurrent.ArrayBlockingQueue;
 

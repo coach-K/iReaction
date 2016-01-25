@@ -1,13 +1,13 @@
-package Reaction;
+package reaction;
 
 
-import Pair.Pair;
-import Pair.PairList;
+import pair.Pair;
+import pair.PairList;
 
 import java.util.ArrayList;
 
 /**
- * This is a defined Pair List class, it extends PairList
+ * This is a defined pair List class, it extends PairList
  * Holds to holds a list of pairs
  *
  * @author OGUNDE KEHINDE
@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * {@literal <V> value of element}
  * <p/>
  * <p>This class is a member of the
- * <a href="{@docRoot}/../src/Reaction/Reaction/index.html">
+ * <a href="{@docRoot}/../src/reaction/reaction/index.html">
  * Java Collections Framework</a>.
  * @see PairList
  * @since 7.1

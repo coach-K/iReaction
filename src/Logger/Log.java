@@ -1,6 +1,6 @@
-package Logger;
+package logger;
 
-import Util.DateFormatter;
+import util.DateFormatter;
 
 /**
  * This class creates element of a Log

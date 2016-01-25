@@ -1,11 +1,11 @@
-package Pair;
+package pair;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
 /**
- * This is a generics Pair List class, holds a list of pair of any type
+ * This is a generics pair List class, holds a list of pair of any type
  *
  * @author OGUNDE KEHINDE
  * @literal <K> key of element}

@@ -1,8 +1,8 @@
-package Main;
+package main;
 
-import Reaction.Thread.DatabaseThread;
-import Reaction.Thread.LogThread;
-import Reaction.Thread.ReactionThread;
+import reaction.thread.DatabaseThread;
+import reaction.thread.LogThread;
+import reaction.thread.ReactionThread;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

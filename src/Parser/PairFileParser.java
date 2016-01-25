@@ -1,6 +1,6 @@
-package Parser;
+package parser;
 
-import Pair.Pair;
+import pair.Pair;
 
 import java.io.*;
 
@@ -34,8 +34,8 @@ public class PairFileParser {
     /**
      * Stores the content of a file as key and value
      *
-     * @see Parser.PairBuffer#appendKey
-     * @see Parser.PairBuffer#appendValue
+     * @see parser.PairBuffer#appendKey
+     * @see parser.PairBuffer#appendValue
      */
     private PairBuffer pairBuffer;
 
@@ -246,7 +246,7 @@ public class PairFileParser {
     }
 
     /**
-     * Populates the Pair buffer element with file content based on this delimiter
+     * Populates the pair buffer element with file content based on this delimiter
      * in order to create a pair element
      *
      * @param delimiter    determines the key and value to create a pair element

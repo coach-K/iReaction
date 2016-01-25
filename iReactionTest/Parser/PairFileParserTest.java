@@ -1,11 +1,11 @@
-package Parser;
+package parser;
 
-import Constant.FilePath;
+import constant.FilePath;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import Pair.Pair;
+import pair.Pair;
 
 import java.io.File;
 import java.io.IOException;

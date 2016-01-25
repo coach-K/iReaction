@@ -1,6 +1,6 @@
-package Reaction;
+package reaction;
 
-import Constant.FilePath;
+import constant.FilePath;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

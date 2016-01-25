@@ -1,10 +1,10 @@
-package Reaction;
+package reaction;
 
 
-import Database.Config;
-import Database.DatabaseConnector;
-import Database.DatabaseManager;
-import Pair.Pair;
+import database.Config;
+import database.DatabaseConnector;
+import database.DatabaseManager;
+import pair.Pair;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -14,8 +14,8 @@ import java.util.ArrayList;
  * Sets {@code connected } to {@code false} if an error occur.
  *
  * @author OGUNDE KEHINDE
- * @see Database.DatabaseConnector
- * @see Database.DatabaseManager
+ * @see database.DatabaseConnector
+ * @see database.DatabaseManager
  */
 public class ReactionDBWriter {
 
@@ -34,7 +34,7 @@ public class ReactionDBWriter {
     }
 
     /**
-     * Connect a Reaction Database if not exist with credentials specified in {@link Database.Config}
+     * Connect a reaction database if not exist with credentials specified in {@link database.Config}
      *
      * @throws Exception if an error occurs
      */
@@ -46,7 +46,7 @@ public class ReactionDBWriter {
     }
 
     /**
-     * Create a Reaction Table if not exist with credentials specified in {@link Database.Config}
+     * Create a reaction Table if not exist with credentials specified in {@link database.Config}
      */
     public void createReactionTable() {
         databaseManager.createNewTable(Config.TABLE.toString())

@@ -1,15 +1,15 @@
-package Parser;
+package parser;
 
-import Pair.Pair;
+import pair.Pair;
 
 import java.util.ArrayList;
 
 /**
- * This is a Pair Buffer class, this class appends strings as key, and string as values
+ * This is a pair buffer class, this class appends strings as key, and string as values
  * <p/>
  * <p>This class is a member of the
  * <a href="{@docRoot}/../src/parser/pairbuffer/index.html">
- * Java Buffer Framework</a>.
+ * Java buffer Framework</a>.
  *
  * @author OGUNDE KEHINDE
  * @see Pair
@@ -54,12 +54,12 @@ public class PairBuffer {
     }
 
     /**
-     * Creates a Pair element using #key and #value
-     * Returns a Pair element such that <tt>e</tt>
+     * Creates a pair element using #key and #value
+     * Returns a pair element such that <tt>e</tt>
      * <p/>
      * {@code toKey() == null ? toValue() == null : toPair() }
      *
-     * @return a Pair element
+     * @return a pair element
      */
     public synchronized Pair<String, ArrayList<String>> toPair() {
         if (pair.getKey().equals(toKey())) {

@@ -1,4 +1,4 @@
-package Database;
+package database;
 
 /**
  * This class stores a MySQL credential constants

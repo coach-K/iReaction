@@ -1,4 +1,4 @@
-package Database;
+package database;
 
 
 import java.sql.*;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * at the call to {@code execute() executeQuery()} and {@code executeUpdate()}
  *
  * @author OGUNDE KEHINDE
- * @see Database.QueryBuilder
+ * @see database.QueryBuilder
  * @see DriverManager#getConnection
  * @see java.sql.Statement
  * @see java.sql.ResultSet

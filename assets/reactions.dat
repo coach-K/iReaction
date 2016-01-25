@@ -13,7 +13,7 @@
 # The format of this file is defined at http://bioinformatics.ai.sri.com/ptools/flatfile-format.html .
 #
 # Species: Staphylococcus epidermidis 14.1.R1.SE
-# Database: Staphylococcus epidermidis 14.1.R1.SE, whole genome shotgun sequencing project.
+# database: Staphylococcus epidermidis 14.1.R1.SE, whole genome shotgun sequencing project.
 # Version: 17.0
 # File Name: reactions.dat
 # Date and time generated: March 20, 2013, 2:44:14
@@ -18495,7 +18495,7 @@ UNIQUE-ID - RXN0-949
 TYPES - Protein-Modification-Reactions
 ATOM-MAPPINGS - :TIMED-OUT
 ATOM-MAPPINGS - 60
-COMMENT-INTERNAL - Reaction is incomplete at this time.  arnaud 26Mar03
+COMMENT-INTERNAL - reaction is incomplete at this time.  arnaud 26Mar03
 CREDITS - SRI
 CREDITS - |kaipa|
 EC-NUMBER - EC-2.8.1.8

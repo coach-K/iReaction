@@ -1,16 +1,16 @@
-package Reaction.Thread;
+package reaction.thread;
 
 
-import Constant.FilePath;
-import Logger.Log;
-import Logger.LogWriter;
-import Reaction.Buffer.Buffers;
+import constant.FilePath;
+import logger.Log;
+import logger.LogWriter;
+import reaction.buffer.Buffers;
 
 import java.io.File;
 import java.io.IOException;
 
 /**
- * A <i>Log Thread</i> is a thread of execution in a program. The Java
+ * A <i>Log thread</i> is a thread of execution in a program. The Java
  * Virtual Machine allows an application to have multiple threads of
  * execution running concurrently.
  * <p/>
@@ -20,8 +20,8 @@ import java.io.IOException;
  * @author OGUNDE KEHINDE
  * @see java.lang.Thread
  * @see java.lang.Runnable
- * @see Reaction.Reaction
- * @see Logger.Log
+ * @see reaction.Reaction
+ * @see logger.Log
  * @see java.util.concurrent.ArrayBlockingQueue
  * @since 1.7
  */
@@ -45,7 +45,7 @@ public class LogThread implements Runnable {
     }
 
     /**
-     * consume {@link Logger.Log} from {@link Reaction.Buffer.Buffers#logBuffer}
+     * consume {@link logger.Log} from {@link reaction.buffer.Buffers#logBuffer}
      */
     private void consume() {
         Log log;

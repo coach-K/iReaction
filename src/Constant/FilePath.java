@@ -1,4 +1,4 @@
-package Constant;
+package constant;
 
 /**
  * This class stores file path.

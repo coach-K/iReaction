@@ -1,14 +1,11 @@
-package Logger;
+package logger;
 
-import Constant.FilePath;
-import Database.Config;
+import constant.FilePath;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
-
-import static org.junit.Assert.*;
 
 public class LogWriterTest {
 

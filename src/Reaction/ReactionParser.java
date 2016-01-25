@@ -1,7 +1,7 @@
-package Reaction;
+package reaction;
 
-import Pair.Pair;
-import Parser.PairFileParser;
+import pair.Pair;
+import parser.PairFileParser;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,7 +17,7 @@ import java.io.IOException;
  *
  * @author OGUNDE KEHINDE
  * @see Pair
- * @see Parser.PairFileParser
+ * @see parser.PairFileParser
  * @since 1.7
  */
 public class ReactionParser extends PairFileParser {
@@ -41,13 +41,13 @@ public class ReactionParser extends PairFileParser {
     }
 
     /**
-     * Returns the next #Reaction element, or <code>null</code> if the end of the
+     * Returns the next #reaction element, or <code>null</code> if the end of the
      * stream is reached.
      *
-     * @return the next #Reaction element, or <code>null</code> if the end of the
+     * @return the next #reaction element, or <code>null</code> if the end of the
      * stream is reached.
      * @throws IOException if this input stream has been closed by
-     *                     invoking its {@link Parser.PairFileParser#close()} method,
+     *                     invoking its {@link parser.PairFileParser#close()} method,
      *                     or an I/O error occurs.
      * @see java.io.FilterInputStream#in
      */
@@ -55,8 +55,8 @@ public class ReactionParser extends PairFileParser {
         Pair pair;
         Reaction reaction1 = null;
 
-        while ((pair = super.readPair('-')) != null) {
-            if (super.isEndOfBlock()) {
+        while ((pair = readPair('-')) != null) {
+            if (isEndOfBlock()) {
                 reaction1 = reaction;
                 reaction = new Reaction();
                 break;

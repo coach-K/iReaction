@@ -1,4 +1,4 @@
-package Pair;
+package pair;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ import java.util.ArrayList;
  *         {@literal} <K> key of element
  *         {@literal} <V> value of element
  *         <b>An Example code</b>
- *         {@code} Pair<String, String> pair = new Pair<>("Hello", "World");
+ *         {@code} pair<String, String> pair = new pair<>("Hello", "World");
  */
 public class Pair<K, V> {
     public static final String DEFAULT_KEY = "";

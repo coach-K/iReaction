@@ -1,17 +1,17 @@
-package Reaction.Thread;
+package reaction.thread;
 
 
-import Constant.FilePath;
-import Logger.Log;
-import Reaction.Buffer.Buffers;
-import Reaction.Reaction;
-import Reaction.ReactionParser;
+import constant.FilePath;
+import logger.Log;
+import reaction.buffer.Buffers;
+import reaction.Reaction;
+import reaction.ReactionParser;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 
 /**
- * A <i>Reaction Thread</i> is a thread of execution in a program. The Java
+ * A <i>reaction thread</i> is a thread of execution in a program. The Java
  * Virtual Machine allows an application to have multiple threads of
  * execution running concurrently.
  * <p/>
@@ -22,7 +22,7 @@ import java.io.FileNotFoundException;
  * @see java.lang.Thread
  * @see java.lang.Runnable
  * @see Reaction
- * @see Logger.Log
+ * @see logger.Log
  * @see java.util.concurrent.ArrayBlockingQueue
  * @since 1.7
  */

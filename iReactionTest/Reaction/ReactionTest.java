@@ -1,6 +1,6 @@
-package Reaction;
+package reaction;
 
-import Pair.Pair;
+import pair.Pair;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
